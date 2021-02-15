@@ -1,0 +1,20 @@
+{
+  "name": "tt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mariem",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "jsonwebtoken": "^7.4.1",
+    "mongoose": "^4.8.5"
+  }
+}
