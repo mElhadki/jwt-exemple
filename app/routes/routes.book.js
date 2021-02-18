@@ -6,7 +6,12 @@ router.use(bodyParser.json());
 
 var checkTheToken = require('./routes.verifyToken');
 
-router.get("/", checkTheToken, (req, res) => {
+router.get("/", (req, res) => {
+ 
+    res.send("Bonjour you need to login for consulte books");
+});
+
+router.get("/books", checkTheToken, (req, res) => {
   Book.find()
     .then((menu) => res.json(menu))
     .catch((err) => res.status(400).json("Error :" + err));

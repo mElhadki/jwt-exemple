@@ -14,7 +14,7 @@ var bcrypt = require('bcryptjs');
 
 
 router.post('/login', function (req, res) {
-  User.findOne({ email: req.body.email }).then((user) => {
+  User.findOne({ phone: req.body.phone }).then((user) => {
     var passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
     if (!passwordIsValid) return res.status(401).send({ auth: false, token: null });
   
@@ -39,7 +39,7 @@ router.post('/register', function (req, res) {
 
   var hashpw = bcrypt.hashSync(req.body.password, 8);
 
-  User.create({name: req.body.name, email: req.body.email, password: hashpw}).then((user) => {
+  User.create({name: req.body.name, phone: req.body.phone, password: hashpw}).then((user) => {
 
       var tkn = jwt.sign({ id: user._id }, config.secret, {
         expiresIn: 86400
